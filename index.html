@@ -54,7 +54,7 @@
             <textarea
               placeholder="Type or paste your text"
               onChange={(e) => {
-                setWordsCount(e.target.value.split(" ").length);
+                setWordsCount(e.target.value.trim().split(/\s+/).length);
                 setCharsCount(e.target.value.length);
                 setCharsExclSpaces(e.target.value.replace(/ /g, "").length);
               }}
