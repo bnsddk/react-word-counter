@@ -54,9 +54,15 @@
             <textarea
               placeholder="Type or paste your text"
               onChange={(e) => {
-                setWordsCount(e.target.value.trim().split(/\s+/).length);
-                setCharsCount(e.target.value.length);
-                setCharsExclSpaces(e.target.value.replace(/ /g, "").length);
+                if (e.target.value.length > 0) {
+                  setWordsCount(e.target.value.trim().split("/\s/").length);
+                  setCharsCount(e.target.value.length);
+                  setCharsExclSpaces(e.target.value.replace(/\s/g, "").length);
+                } else {
+                  setWordsCount("0");
+                  setCharsCount("0");
+                  setCharsExclSpaces("0");
+                }
               }}
             ></textarea>
             <footer>
