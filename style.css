@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f6f5ef;
+}
+
+.word-count {
+  display: grid;
+  justify-items: center;
+  padding: 96px 0;
+}
+
+.main-title {
+  color: #e15b46;
+  font-size: 28px;
+  line-height: 32px;
+  font-family: Roboto;
+  font-weight: 700;
+  padding-bottom: 8px;
+}
+
+.main-description {
+  color: #252524;
+  font-size: 16px;
+  font-family: Roboto;
+  line-height: 16px;
+}
+
+.counters {
+  display: flex;
+  background-color: #ffffff;
+  width: 736px;
+  height: 85px;
+  margin-top: 48px;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+  font-family: Roboto;
+  align-items: center;
+}
+
+.number {
+  font-size: 32px;
+  color: #e15b46;
+}
+
+.number:focus {
+  color: blue;
+}
+
+.words-counter {
+  width: 33.3333%;
+  text-align: center;
+  border-right: 1px solid #e5e5e5;
+  order: 1;
+}
+
+.chars-counter {
+  width: 33.3333%;
+  text-align: center;
+  border-right: 1px solid #e5e5e5;
+  order: 2;
+}
+
+.chars-excl-counter {
+  width: 33.3333%;
+  text-align: center;
+  order: 3;
+}
+
+textarea {
+  max-width: 736px;
+  width: 100%;
+  height: 268px;
+
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  color: #000000;
+
+  padding: 20px;
+
+  font-family: Roboto;
+  font-size: 16px;
+
+  resize: none;
+  outline: none;
+}
+
+textarea::placeholder {
+  color: #dad6d6;
+}
+
+footer {
+  color: #908f8f;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 13px;
+  font-family: Roboto;
+  margin-bottom: 32px;
+}

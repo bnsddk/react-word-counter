@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📒</text></svg>"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script type="text/babel">
+      function App() {
+        const [wordsCount, setWordsCount] = React.useState("0");
+        const [charsCount, setCharsCount] = React.useState("0");
+        const [charsExclSpaces, setCharsExclSpaces] = React.useState("0");
+
+        return (
+          <div className="word-count">
+            <div className="main-title">Word Count</div>
+            <div className="main-description">
+              A simple and free word counter
+            </div>
+            <div className="counters">
+              <div className="words-counter">
+                <div className="number">{wordsCount}</div>
+                Words
+              </div>
+              <div className="chars-counter">
+                <div className="number">{charsCount}</div>
+                Characters
+              </div>
+              <div className="chars-excl-counter">
+                <div className="number">{charsExclSpaces}</div>
+                Characters excluding spaces
+              </div>
+            </div>
+            <textarea
+              placeholder="Type or paste your text"
+              onChange={(e) => {
+                setWordsCount(e.target.value.split(" ").length);
+                setCharsCount(e.target.value.length);
+                setCharsExclSpaces(e.target.value.replace(/ /g, "").length);
+              }}
+            ></textarea>
+            <footer>
+              Count words and characters with Word Count, a free online word
+              count tool created by{" "}
+              <a href="https://twitter.com/bnsddk">bnsddk</a> and copied from
+              Ahrefs, lol
+            </footer>
+          </div>
+        );
+      }
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
