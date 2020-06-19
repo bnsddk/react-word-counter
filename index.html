@@ -59,15 +59,9 @@
                   .trim()
                   .split(/\s+/)
                   .filter((word) => word != "");
-                if (input.length > 0) {
-                  setWordsCount(words.length);
-                  setCharsCount(input.length);
-                  setCharsExclSpaces(input.replace(/\s/g, "").length);
-                } else {
-                  setWordsCount("0");
-                  setCharsCount("0");
-                  setCharsExclSpaces("0");
-                }
+                setWordsCount(words.length);
+                setCharsCount(input.length);
+                setCharsExclSpaces(input.replace(/\s/g, "").length);
               }}
             ></textarea>
             <footer>
