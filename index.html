@@ -54,10 +54,15 @@
             <textarea
               placeholder="Type or paste your text"
               onChange={(e) => {
-                if (e.target.value.length > 0) {
-                  setWordsCount(e.target.value.trim().split("/\s/").length);
-                  setCharsCount(e.target.value.length);
-                  setCharsExclSpaces(e.target.value.replace(/\s/g, "").length);
+                let input = e.target.value;
+                let words = input
+                  .trim()
+                  .split(/\s+/)
+                  .filter((word) => word != "");
+                if (input.length > 0) {
+                  setWordsCount(words.length);
+                  setCharsCount(input.length);
+                  setCharsExclSpaces(input.replace(/\s/g, "").length);
                 } else {
                   setWordsCount("0");
                   setCharsCount("0");
