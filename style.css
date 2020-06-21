@@ -118,56 +118,25 @@ footer {
 
 /* Logic for changing className to color */
 
-.uncolored-words {
+.uncolored-count{
   color: #e5e5e5;
   font-size: 32px;
 }
 
-.colored-words {
+
+.colored-count {
   color: #e15b46;
   font-size: 32px;
 }
 
-.uncolored-chars {
-  color: #e5e5e5;
-  font-size: 32px;
-}
-.colored-chars {
-  color: #e15b46;
-  font-size: 32px;
-}
 
-.uncolored-chars-excl {
-  color: #e5e5e5;
-  font-size: 32px;
-}
-.colored-chars-excl {
-  color: #e15b46;
-  font-size: 32px;
-}
 
-.colored-text-1 {
+.colored-text {
   color: #000000;
 }
 
-.uncolored-text-1 {
-  color: #e5e5e5;
-}
-
-.colored-text-2 {
-  color: #000000;
-}
-
-.uncolored-text-2 {
-  color: #e5e5e5;
-}
-
-.colored-text-3 {
-  color: #000000;
-}
-
-.uncolored-text-3 {
-  color: #e5e5e5;
+.uncolored-text {
+  color:  #e5e5e5;
 }
 
 @media only screen and (max-width: 600px) {

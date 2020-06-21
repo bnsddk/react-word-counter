@@ -10,8 +10,12 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📒</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔎</text></svg>"
     />
   </head>
   <body>
@@ -27,19 +31,16 @@
     ></script>
     <script type="text/babel">
       function App() {
-        const [wordsCount, setWordsCount] = React.useState("0");
-        const [charsCount, setCharsCount] = React.useState("0");
-        const [charsExclSpaces, setCharsExclSpaces] = React.useState("0");
+        const [text, setText] = React.useState("");
 
-        const [colorWord, setColorWord] = React.useState("uncolored-words");
-        const [colorChars, setColorChars] = React.useState("uncolored-chars");
-        const [colorCharsExcl, setColorCharsExcl] = React.useState(
-          "uncolored-chars-excl"
-        );
+        let words = text
+          .trim()
+          .split(/\s+/)
+          .filter((word) => word != "");
 
-        const [colorText1, setColorText1] = React.useState("uncolored-text-1");
-        const [colorText2, setColorText2] = React.useState("uncolored-text-2");
-        const [colorText3, setColorText3] = React.useState("uncolored-text-3");
+        let charsCount = text.length;
+        let wordsCount = words.length;
+        let charsExclSpaces = text.replace(/\s/g, "").length;
 
         return (
           <div className="word-count">
@@ -49,54 +50,53 @@
             </div>
             <div className="counters">
               <div className="words-counter">
-                <div className={colorWord}>{wordsCount}</div>
-                <div className={colorText1}>Words</div>
+                <div
+                  className={
+                    wordsCount > 0 ? "colored-count" : "uncolored-count"
+                  }
+                >
+                  {wordsCount}
+                </div>
+                <div
+                  className={wordsCount > 0 ? "colored-text" : "uncolored-text"}
+                >
+                  Words
+                </div>
               </div>
               <div className="chars-counter">
-                <div className={colorChars}>{charsCount}</div>
-                <div className={colorText2}>Characters</div>
+                <div
+                  className={
+                    charsCount > 0 ? "colored-count" : "uncolored-count"
+                  }
+                >
+                  {charsCount}
+                </div>
+                <div
+                  className={charsCount > 0 ? "colored-text" : "uncolored-text"}
+                >
+                  Characters
+                </div>
               </div>
               <div className="chars-excl-counter">
-                <div className={colorCharsExcl}>{charsExclSpaces}</div>
-                <div className={colorText3}>Characters excluding spaces</div>
+                <div
+                  className={
+                    charsExclSpaces > 0 ? "colored-count" : "uncolored-count"
+                  }
+                >
+                  {charsExclSpaces}
+                </div>
+                <div
+                  className={
+                    charsExclSpaces > 0 ? "colored-text" : "uncolored-text"
+                  }
+                >
+                  Characters excluding spaces
+                </div>
               </div>
             </div>
             <textarea
               placeholder="Type or paste your text"
-              onChange={(e) => {
-                let input = e.target.value;
-                let words = input
-                  .trim()
-                  .split(/\s+/)
-                  .filter((word) => word != "");
-                setWordsCount(words.length);
-                setCharsCount(input.length);
-                setCharsExclSpaces(input.replace(/\s/g, "").length);
-
-                if (words.length > 0) {
-                  setColorWord("colored-words");
-                  setColorText1("colored-text-1");
-                } else {
-                  setColorWord("uncolored-words");
-                  setColorText1("uncolored-text-1");
-                }
-
-                if (input.length > 0) {
-                  setColorChars("colored-chars");
-                  setColorText2("colored-text-2");
-                } else {
-                  setColorChars("uncolored-chars");
-                  setColorText2("uncolored-text-2");
-                }
-
-                if (input.replace(/\s/g, "").length > 0) {
-                  setColorCharsExcl("colored-chars-excl");
-                  setColorText3("colored-text-3");
-                } else {
-                  setColorCharsExcl("uncolored-chars-excl");
-                  setColorText3("uncolored-text-3");
-                }
-              }}
+              onChange={(e) => setText(e.target.value)}
             ></textarea>
             <footer>
               Count words and characters with Word Count, a free online word
