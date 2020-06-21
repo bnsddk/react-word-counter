@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #f6f5ef;
+  background: #ffef97;
 }
 
 .word-count {
@@ -18,24 +18,21 @@ body {
 }
 
 .main-title {
-  color: #e15b46;
+  color: #d65f9f;
 
-  line-height: 32px;
+  line-height: 1.3;
 
   padding-bottom: 8px;
 
-  font-size: 28px;
-  font-family: Roboto;
+  font-size: 36px;
+  font-family: 'Lora', serif;
   font-weight: 700;
+  text-align: center;
 }
 
-.main-description {
-  color: #252524;
+.descriptor {
+  font-family: 'Lora', serif;
 
-  font-size: 16px;
-  font-family: Roboto;
-
-  line-height: 16px;
 }
 
 .counters {
@@ -118,25 +115,22 @@ footer {
 
 /* Logic for changing className to color */
 
-.uncolored-count{
+.uncolored-count {
   color: #e5e5e5;
   font-size: 32px;
 }
 
-
 .colored-count {
-  color: #e15b46;
+  color: #d65f9f;
   font-size: 32px;
 }
-
-
 
 .colored-text {
   color: #000000;
 }
 
 .uncolored-text {
-  color:  #e5e5e5;
+  color: #e5e5e5;
 }
 
 @media only screen and (max-width: 600px) {
@@ -151,18 +145,22 @@ footer {
   .counters {
     font-size: 12px;
     height: 110px;
+    width: 100%;
   }
 
   footer {
     width: 100%;
     margin: 0;
     padding-bottom: 5px;
-    padding-right: 15px;
   }
 }
 
 @media only screen and (max-width: 461px) {
   .chars-excl-counter {
     padding-top: 15px;
+  }
+
+  * {
+    margin: 0;
   }
 }
