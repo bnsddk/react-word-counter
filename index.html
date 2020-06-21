@@ -27,15 +27,19 @@
     ></script>
     <script type="text/babel">
       function App() {
+        const [wordsCount, setWordsCount] = React.useState("0");
+        const [charsCount, setCharsCount] = React.useState("0");
+        const [charsExclSpaces, setCharsExclSpaces] = React.useState("0");
+
         const [colorWord, setColorWord] = React.useState("uncolored-words");
         const [colorChars, setColorChars] = React.useState("uncolored-chars");
         const [colorCharsExcl, setColorCharsExcl] = React.useState(
           "uncolored-chars-excl"
         );
 
-        const [wordsCount, setWordsCount] = React.useState("0");
-        const [charsCount, setCharsCount] = React.useState("0");
-        const [charsExclSpaces, setCharsExclSpaces] = React.useState("0");
+        const [colorText1, setColorText1] = React.useState("uncolored-text-1");
+        const [colorText2, setColorText2] = React.useState("uncolored-text-2");
+        const [colorText3, setColorText3] = React.useState("uncolored-text-3");
 
         return (
           <div className="word-count">
@@ -46,15 +50,15 @@
             <div className="counters">
               <div className="words-counter">
                 <div className={colorWord}>{wordsCount}</div>
-                Words
+                <div className={colorText1}>Words</div>
               </div>
               <div className="chars-counter">
                 <div className={colorChars}>{charsCount}</div>
-                Characters
+                <div className={colorText2}>Characters</div>
               </div>
               <div className="chars-excl-counter">
                 <div className={colorCharsExcl}>{charsExclSpaces}</div>
-                Characters excluding spaces
+                <div className={colorText3}>Characters excluding spaces</div>
               </div>
             </div>
             <textarea
@@ -71,20 +75,26 @@
 
                 if (words.length > 0) {
                   setColorWord("colored-words");
+                  setColorText1("colored-text-1");
                 } else {
                   setColorWord("uncolored-words");
+                  setColorText1("uncolored-text-1");
                 }
 
                 if (input.length > 0) {
                   setColorChars("colored-chars");
+                  setColorText2("colored-text-2");
                 } else {
                   setColorChars("uncolored-chars");
+                  setColorText2("uncolored-text-2");
                 }
 
                 if (input.replace(/\s/g, "").length > 0) {
                   setColorCharsExcl("colored-chars-excl");
+                  setColorText3("colored-text-3");
                 } else {
                   setColorCharsExcl("uncolored-chars-excl");
+                  setColorText3("uncolored-text-3");
                 }
               }}
             ></textarea>
