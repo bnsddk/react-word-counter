@@ -27,6 +27,12 @@
     ></script>
     <script type="text/babel">
       function App() {
+        const [colorWord, setColorWord] = React.useState("uncolored-words");
+        const [colorChars, setColorChars] = React.useState("uncolored-chars");
+        const [colorCharsExcl, setColorCharsExcl] = React.useState(
+          "uncolored-chars-excl"
+        );
+
         const [wordsCount, setWordsCount] = React.useState("0");
         const [charsCount, setCharsCount] = React.useState("0");
         const [charsExclSpaces, setCharsExclSpaces] = React.useState("0");
@@ -39,15 +45,15 @@
             </div>
             <div className="counters">
               <div className="words-counter">
-                <div className="number">{wordsCount}</div>
+                <div className={colorWord}>{wordsCount}</div>
                 Words
               </div>
               <div className="chars-counter">
-                <div className="number">{charsCount}</div>
+                <div className={colorChars}>{charsCount}</div>
                 Characters
               </div>
               <div className="chars-excl-counter">
-                <div className="number">{charsExclSpaces}</div>
+                <div className={colorCharsExcl}>{charsExclSpaces}</div>
                 Characters excluding spaces
               </div>
             </div>
@@ -62,13 +68,30 @@
                 setWordsCount(words.length);
                 setCharsCount(input.length);
                 setCharsExclSpaces(input.replace(/\s/g, "").length);
+
+                if (words.length > 0) {
+                  setColorWord("colored-words");
+                } else {
+                  setColorWord("uncolored-words");
+                }
+
+                if (input.length > 0) {
+                  setColorChars("colored-chars");
+                } else {
+                  setColorChars("uncolored-chars");
+                }
+
+                if (input.replace(/\s/g, "").length > 0) {
+                  setColorCharsExcl("colored-chars-excl");
+                } else {
+                  setColorCharsExcl("uncolored-chars-excl");
+                }
               }}
             ></textarea>
             <footer>
               Count words and characters with Word Count, a free online word
               count tool created by{" "}
-              <a href="https://twitter.com/bnsddk">bnsddk</a> and copied from
-              Ahrefs, lol
+              <a href="https://twitter.com/bnsddk">bnsddk</a>
             </footer>
           </div>
         );
